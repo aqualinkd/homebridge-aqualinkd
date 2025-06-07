@@ -80,6 +80,13 @@
 				"required": false,
 				"description": "Do not delete accessories when syncing"
 			},
+			"Light_as_Dimmer": {
+				"title": "Use Dimmer for Light",
+				"type": "boolean",
+				"default": false,
+				"required": false,
+				"description": "Light are switches by default, using Dimmer allows for selection similar to WebUI (Using %)"
+			},
 			"excludedDevices": {
 				"title": "Exluded Devices",
 				"type": "array",
@@ -103,6 +110,7 @@
 				"mqtt.username",
 				"mqtt.password",
 				"VSP_as_Fan",
+				"Light_as_Dimmer",
 				"no_delete_on_sync"
 			]
 		}, {

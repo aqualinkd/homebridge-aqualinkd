@@ -153,6 +153,12 @@ AqualinkdPlatform.prototype = {
             this.log("Device " + device.name + " changing to Dimmer");
             this.isDimmerEnabled=true;
           }
+          if ((typeof this.config.Light_as_Dimmer !== 'undefined') && (this.config.Light_as_Dimmer == true) &&
+              device.type == Constants.adDeviceSwitch && device.hasOwnProperty("type_ext") && device.type_ext == Constants.adDeviceSwitchPrg){
+            device.type = Constants.adDeviceDimmer;
+            this.forceLog("Device " + device.name + " changing to Dimmer");
+            this.isDimmerEnabled=true;
+          }
 
           var existingAccessory = this.accessories.find(function (existingAccessory) {
             return existingAccessory.id == device.id;
