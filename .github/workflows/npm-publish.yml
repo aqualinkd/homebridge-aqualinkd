@@ -19,6 +19,7 @@ jobs:
         with:
           node-version: '22'
           #registry-url: 'https://registry.npmjs.org/package/homebridge-aqualinkd'
+          registry-url: 'https://registry.npmjs.org' # Tells npm where to auth
       - run: npm ci    
       # FIX: Switch to install to avoid the Node 22 'Exit handler' bug
       #- run: npm install 
