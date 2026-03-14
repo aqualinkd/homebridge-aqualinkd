@@ -1,6 +1,6 @@
 {
   "name": "homebridge-aqualinkd",
-  "version": "0.3.9",
+  "version": "0.4.0",
   "description": "aqualinkd Platform plugin for homebridge: https://github.com/aqualinkd/homebridge-aqualinkd",
   "license": "ISC",
   "keywords": [
@@ -23,16 +23,21 @@
     "url": "http://github.com/aqualinkd/homebridge-aqualinkd/issues"
   },
   "OLD-engines-OLD": {
-    "node": ">=14.168.1",
-    "homebridge": ">=1.3.0"
-  },
-  "engines": {
     "homebridge": ">=1.6.0 || ^2.0.0-beta.0",
     "node": ">=18.20.4 || ^20.15.1"
   },
-  "dependencies": {
+  "OLD-dependencies-OLD": {
     "inherits": "^2.0.1",
     "mqtt": "^2.18.8",
     "node-fetch": "^2.6.11"
+  },
+  "engines": {
+    "homebridge": "^1.6.0 || ^2.0.0-beta.0",
+    "node": ">=20.19.0"
+  },
+  "dependencies": {
+    "inherits": "^2.0.1",
+    "mqtt": "^5.15.0",
+    "node-fetch": "^2.7.0"
   }
 }

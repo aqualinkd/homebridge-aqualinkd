@@ -1,9 +1,10 @@
 # Change Log
 
 
-## v0.3.9 (2026-03-06)
+## v0.4.0 (2026-03-14)
 ### Featured Changes
 * Fixed external sensor bug where the value wasn't converting correctly
+* upgraded some dependency packages.
 
 ## v0.3.8 (2025-04-13)
 ### Featured Changes
