@@ -1,6 +1,6 @@
 {
   "name": "homebridge-aqualinkd",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "aqualinkd Platform plugin for homebridge: https://github.com/aqualinkd/homebridge-aqualinkd",
   "license": "ISC",
   "keywords": [

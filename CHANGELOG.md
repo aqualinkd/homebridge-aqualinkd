@@ -1,5 +1,10 @@
 # Change Log
 
+
+## v0.3.9 (2026-03-06)
+### Featured Changes
+* Fixed external sensor bug where the value wasn't converting correctly
+
 ## v0.3.8 (2025-04-13)
 ### Featured Changes
 * Changed URL's to new repo location [AqualinkD organization](https://github.com/aqualinkd/).
