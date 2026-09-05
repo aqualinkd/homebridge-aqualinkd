@@ -1,4 +1,11 @@
+
+
+
 # homebridge-aqualinkd
+
+> ⚠️ **This plugin has been renamed and replaced by [homebridge-aquadaemon](https://www.npmjs.com/package/homebridge-aquadaemon).** Please uninstall this plugin and install `homebridge-aquadaemon` instead — see the [homebridge-aquadaemon repository](https://github.com/aqualinkd/homebridge-aquadaemon) for details.
+
+---
 
 A Homebridge-Plugin, used to connect AqualinkD to AppleHomeKit using Homebridge.
 

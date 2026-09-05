@@ -82,10 +82,19 @@ function AqualinkdPlatform(log, config, api) {
 
   this.firstrun=true;
 
-  this.isVSPasFanEnabled=false;
-  this.isDimmerEnabled=false;
+  // Config options
+  this.isVSPasFanEnabled=false; // This get set later in synchronizeAccessories
+  this.isDimmerEnabled=false;   // This get set later in synchronizeAccessories
 
+  this.isUserDeviceDegC=false;
+  if ( (typeof this.config.user_device_deg_C !== 'undefined') && this.config.user_device_deg_C == true) {
+    this.isUserDeviceDegC = true;
+  }
 
+  if (typeof this.config.no_delete_on_sync === 'undefined') {
+   this.config.no_delete_on_sync = false;
+  }
+  // End config options
 
   var requestHeaders = {};
   if (this.authorizationToken) {

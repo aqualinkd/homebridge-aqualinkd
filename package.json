@@ -1,6 +1,7 @@
 {
+  "headerDisplay": "⚠️ **This plugin has been replaced by [homebridge-aquadaemon](https://www.npmjs.com/package/homebridge-aquadaemon).** Please uninstall this plugin and install the new one — see the [migration notes](https://github.com/aqualinkd/homebridge-aquadaemon) for details.",
   "name": "homebridge-aqualinkd",
-  "version": "0.4.0",
+  "version": "0.4.2",
   "description": "aqualinkd Platform plugin for homebridge: https://github.com/aqualinkd/homebridge-aqualinkd",
   "license": "ISC",
   "keywords": [

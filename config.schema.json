@@ -1,8 +1,9 @@
 {
 	"pluginAlias": "AqualinkD",
 	"pluginType": "platform",
-	"singular": false,
-	"headerDisplay": "Homebridge plugin for AqualinkD",
+	"singular": true,
+	"headerDisplay": "⚠️ **This plugin has been replaced by [homebridge-aquadaemon](https://www.npmjs.com/package/homebridge-aquadaemon).** Please uninstall this plugin and install the new one — see the [migration notes](https://github.com/aqualinkd/homebridge-aquadaemon) for details.",
+	"--headerDisplay": "Homebridge plugin for AqualinkD",
 	"footerDisplay": "For help visit [Homebridge-AqualinkD on GitHub](https://github.com/aqualinkd/homebridge-aqualinkd) or [AqualinkD on GitHub](https://github.com/aqualinkd/AqualinkD)",
 	"schema": {
 		"type": "object",
@@ -29,42 +30,42 @@
 				"description": "AqualinkD port"
 			},
 			"mqtt": {
-			    "type": "object",
-			    "properties": {
-			    "host": {
-					"title": "MQTT Server",
-					"type": "string",
-					"default": "127.0.0.1",
-					"required": true,
-					"description": "Server (name or ip) running MQTT"
-				  },
-				  "port": {
-					"title": "MQTT Port",
-					"type": "string",
-					"default": "1883",
-					"required": true,
-					"description": "Port for MQTT server"
-				  },
-				  "topic": {
-					"title": "MQTT Topic",
-					"type": "string",
-					"default": "aqualinkd",
-					"required": true,
-					"description": "MQTT topic AqualinkD server uses"
-				  },
-				  "username": {
-                    "type": "string",
-                    "required": false,
-                    "title": "Username",
-                    "description": "Username for MQTT server (optional)"
-                  },
-                  "password": {
-                    "type": "string",
-                    "required": false,
-                    "title": "Password",
-                    "description": "Password for MQTT server (optional)"
-                  }
-			    }
+				"type": "object",
+				"properties": {
+					"host": {
+						"title": "MQTT Server",
+						"type": "string",
+						"default": "127.0.0.1",
+						"required": true,
+						"description": "Server (name or ip) running MQTT"
+					},
+					"port": {
+						"title": "MQTT Port",
+						"type": "string",
+						"default": "1883",
+						"required": true,
+						"description": "Port for MQTT server"
+					},
+					"topic": {
+						"title": "MQTT Topic",
+						"type": "string",
+						"default": "aqualinkd",
+						"required": true,
+						"description": "MQTT topic AqualinkD server uses"
+					},
+					"username": {
+						"type": "string",
+						"required": false,
+						"title": "Username",
+						"description": "Username for MQTT server (optional)"
+					},
+					"password": {
+						"type": "string",
+						"required": false,
+						"title": "Password",
+						"description": "Password for MQTT server (optional)"
+					}
+				}
 			},
 			"VSP_as_Fan": {
 				"title": "Use Fan for Variable Speed Pumps",
@@ -72,6 +73,13 @@
 				"default": false,
 				"required": false,
 				"description": "Pumps are switches by default, using Fan allows for RPM change (Using %)"
+			},
+			"user_device_deg_C": {
+				"title": "Display devices are DegC",
+				"type": "boolean",
+				"default": false,
+				"required": false,
+				"description": "For external sensors that are NOT temperature sensors, a temperature sensor will be created due to homekit limitations. This will correct the value displayed if your device is set to show degC"
 			},
 			"no_delete_on_sync": {
 				"title": "No delete on sync",
@@ -81,18 +89,18 @@
 				"description": "Do not delete accessories when syncing"
 			},
 			"excludedDevices": {
-				"title": "Exluded Devices",
+				"title": "Excluded Devices",
 				"type": "array",
-				"items":  [ {
-					"title": "Excluded Device Name",
+				"items": {
 					"type": "string",
-					"default": "SWG/Percent_f"
-			    } ]
+					"placeholder": "Enter device name (e.g. SWG/Percent_f)"
+				}
 			}
 		}
 	},
 	"form": [
-		"name", {
+		"name",
+		{
 			"type": "flex",
 			"items": [
 				"server",
@@ -103,32 +111,29 @@
 				"mqtt.username",
 				"mqtt.password",
 				"VSP_as_Fan",
+				"user_device_deg_C",
 				"no_delete_on_sync"
 			]
-		}, {
+		},
+		{
 			"type": "fieldset",
 			"title": "Exclude Devices",
 			"expandable": true,
 			"expanded": false,
-			"items": [{
+			"items": [
+				{
 					"type": "help",
-					"helpvalue": "<h6>Exclude Devices</h6><em class='primary-text'>To prevent certain aqualinkd devices from showing up in HomeBridge, add name of the device.</em><br>You can use this url (http://<i>aqualinkd_server_ip</i>/api/devices) to get a list of devices, and put the id below"
-				}, {
-					"nodescription": true,
-					"notitle": true,
+					"helpvalue": "<h6>Exclude Devices</h6><em class='primary-text'>To prevent certain aqualinkd devices from showing up in Homebridge, add the name of the device.</em><br>Visit http://<i>aqualinkd_server_ip</i>/api/devices to see all available IDs."
+				},
+				{
 					"key": "excludedDevices",
 					"type": "array",
-					"items": [{
-							"type": "div",
-							"displayFlex": true,
-							"flex-direction": "row",
-							"items": [{
-									"key": "excludedDevices[]",
-									"flex": "1 1 50px",
-									"notitle": true,
-									"placeholder": "Enter device name..."
-								}
-							]
+					"buttonText": "Add Device to Exclude",
+					"items": [
+						{
+							"key": "excludedDevices[]",
+							"title": "Device ID",
+							"placeholder": "e.g. SWG/Percent_f"
 						}
 					]
 				}

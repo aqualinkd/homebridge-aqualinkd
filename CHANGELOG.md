@@ -1,5 +1,13 @@
 # Change Log
 
+## v0.4.2 (2026-09-05)
+### Featured Changes
+* This plugin has been renamed and replaced by [homebridge-aquadaemon](https://www.npmjs.com/package/homebridge-aquadaemon). This will be the final release of homebridge-aqualinkd — please uninstall it and install homebridge-aquadaemon instead. See the [homebridge-aquadaemon repository](https://github.com/aqualinkd/homebridge-aquadaemon) for migration details.
+
+## v0.4.1 (2026-03-15)
+### Featured Changes
+* Fixed homebridge ui config for exclude devices 
+* User configurable unit conversion depending on phone settings.
 
 ## v0.4.0 (2026-03-14)
 ### Featured Changes
